@@ -20,9 +20,10 @@
      * @demo demo/index.html
      */
     class TangyForm extends Polymer.Element {
-      static get is() { return 'tangy-form'; }
 
+      static get is() { return 'tangy-form'; }
       ready() {
+        super.ready();
         this.tangyModel = {}
         this.formElements = this.findAllFormElements()
         this.tangyElements = this.findAllTangyElements()
