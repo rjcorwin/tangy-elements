@@ -46,7 +46,6 @@
           }
           this._tangyModel = newValue
           let shouldHide = false;
-          debugger;
           eval(`if (${this.condition}) { shouldHide = true}`)
           if (shouldHide) {
             console.log('hiding!')
