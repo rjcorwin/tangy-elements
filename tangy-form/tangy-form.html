@@ -48,8 +48,6 @@
         this.tangyModel = {}
         this.formElements = this.findAllFormElements()
         this.tangyElements = this.findAllTangyElements()
-        console.log(this.formElements)
-        console.log(this.tangyElements)
         this.formElements.forEach((el) => this.tangyModel[el.id] = '')
         this.formElements.forEach((el) => el.addEventListener('change', (el) => this.onChange(el), false))
       }

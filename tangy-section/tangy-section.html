@@ -37,17 +37,6 @@
       ready() {
         super.ready();
         this._tangyModel = {}
-        // retrieve the nested template
-        let slot = this.shadowRoot.querySelector('slot');
-        let nodes = slot.assignedNodes()
-        // nodes.forEach(node => console.log(node))
-
-        /*
-        //
-        for (let i=0; i<10; i++) {
-          this.shadowRoot.appendChild(document.importNode(template.content, true));
-        }
-        */
       }
     }
 
