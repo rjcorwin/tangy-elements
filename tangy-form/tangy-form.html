@@ -1,6 +1,4 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../paper-tabs/paper-tabs.html">
-
 
 <dom-module id="tangy-form">
   <template>
@@ -9,19 +7,7 @@
         display: block;
       }
     </style>
-    <paper-tabs selected="0" scrollable>
-      <paper-tab id="questionsTab">questions</paper-tab>
-      <paper-tab id="responsesTab">responses</paper-tab>
-    </paper-tabs>
-    <div id="questions">
-      <slot></slot>
-    </div>
-    <div id="responses" style="display: none">
-      <div> Download </div>
-      for each response...
-    </div>
-
-
+    <slot></slot>
   </template>
 
   <script>
@@ -35,14 +21,6 @@
      */
     class TangyForm extends Polymer.Element {
       static get is() { return 'tangy-form'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'tangy-form'
-          }
-        };
-      }
 
       ready() {
         this.tangyModel = {}
@@ -60,6 +38,7 @@
             value: el.currentTarget.value
           }
         };
+        // TODO: Reduxify.
         console.log(JSON.stringify(action))
 
         // Update the tangyModel.
