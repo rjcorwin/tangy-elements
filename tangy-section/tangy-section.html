@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<dom-module id="tangy-section">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+      <slot id="slot"></slot>
+  </template>
+
+  <script>
+    /**
+     * `tangy-section`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TangySection extends Polymer.Element {
+      static get is() { return 'tangy-section'; }
+      static get properties() {
+        return {
+          tangyModel: {
+            type: Object,
+            value: 'tangy-section',
+            observer: '_tangyModelChange'
+          }
+        };
+      }
+      _tangyModelChange(newValue, oldValue) {
+        this._tangyModel = newValue
+      }
+      ready() {
+        super.ready();
+        this._tangyModel = {}
+        // retrieve the nested template
+        let slot = this.shadowRoot.querySelector('slot');
+        let nodes = slot.assignedNodes()
+        // nodes.forEach(node => console.log(node))
+
+        /*
+        //
+        for (let i=0; i<10; i++) {
+          this.shadowRoot.appendChild(document.importNode(template.content, true));
+        }
+        */
+      }
+    }
+
+    window.customElements.define(TangySection.is, TangySection);
+  </script>
+</dom-module>
